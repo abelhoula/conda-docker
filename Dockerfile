@@ -4,8 +4,9 @@ WORKDIR /test
 RUN conda create --name test python=3.7
 #SHELL ["conda", "run", "-n", "test", "/bin/bash", "--login", "-c"]
 SHELL ["conda", "run", "-n", "test", "/bin/bash", "-c"]
+RUN conda install -c conda-libmamba-solver
 RUN conda install -c anaconda scipy
-RUN conda install -c conda-forge pythonocc-core
+RUN conda install -c conda-forge pythonocc-core --solver=libmamba
 RUN conda install -c conda-forge -c oce -c dlr-sc -c ifcopenshell ifcopenshell
 RUN conda install -c anaconda flask
 RUN conda install -c anaconda pandas
